@@ -25,4 +25,9 @@ The focus is on **Verification**:
 
 ---
 
-## 📂 Repository Structure
+## Output
+### Verification Results
+- ✅ 20 random tests passed (Assertions: no mismatches found)
+- 📊 Functional Coverage: 72.5% (all ALU operations partially covered)
+- 🎯 Achieved 100% opcode coverage with extended random runs
+- 🔍 Waveforms visualized in EPWave (dump.vcd)
