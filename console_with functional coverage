@@ -1,0 +1,22 @@
+# KERNEL: PASS: a=8 b=12 op=0 => result=4
+# KERNEL: PASS: a=14 b=2 op=4 => result=12
+# KERNEL: PASS: a=14 b=6 op=3 => result=14
+# KERNEL: PASS: a=0 b=2 op=1 => result=14
+# KERNEL: PASS: a=10 b=12 op=6 => result=5
+# KERNEL: PASS: a=5 b=9 op=1 => result=12
+# KERNEL: PASS: a=12 b=14 op=3 => result=14
+# KERNEL: PASS: a=0 b=2 op=2 => result=0
+# KERNEL: PASS: a=6 b=4 op=1 => result=2
+# KERNEL: PASS: a=11 b=3 op=7 => result=11
+# KERNEL: PASS: a=5 b=13 op=1 => result=8
+# KERNEL: PASS: a=1 b=2 op=2 => result=0
+# KERNEL: PASS: a=1 b=4 op=6 => result=0
+# KERNEL: PASS: a=10 b=6 op=4 => result=12
+# KERNEL: PASS: a=10 b=7 op=3 => result=15
+# KERNEL: PASS: a=14 b=13 op=0 => result=11
+# KERNEL: PASS: a=2 b=7 op=3 => result=7
+# KERNEL: PASS: a=5 b=11 op=7 => result=5
+# KERNEL: PASS: a=10 b=3 op=3 => result=11
+# KERNEL: PASS: a=6 b=14 op=1 => result=8
+# KERNEL: Coverage report:
+# KERNEL: Coverage = 72.50%
