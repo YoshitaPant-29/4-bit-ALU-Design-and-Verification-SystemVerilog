@@ -40,8 +40,8 @@ module alu_tb;
         logic [4:0] tmp;
         begin
             case (alu_ctrl)
-                3'b000: begin tmp = a + b; expected_result =                  tmp[3:0]; expected_carry = tmp[4]; end
-                3'b001: begin tmp = a - b; expected_result =                  tmp[3:0]; expected_carry = tmp[4]; end
+                3'b000: begin tmp = a + b; expected_result = tmp[3:0]; expected_carry = tmp[4]; end
+                3'b001: begin tmp = a - b; expected_result = tmp[3:0]; expected_carry = tmp[4]; end
                 3'b010: expected_result = a & b;
                 3'b011: expected_result = a | b;
                 3'b100: expected_result = a ^ b;
