@@ -24,7 +24,7 @@ module alu_tb;
         bins carry    = {1};
     }
 
-        cross alu_ctrl, zero;  // check zero flag behavior            across all ops
+        cross alu_ctrl, zero;  // check zero flag behavior across all ops
     cross alu_ctrl, carry_out;
     endgroup
 
@@ -36,7 +36,7 @@ module alu_tb;
     logic expected_carry;
 
     // Teacher calculates expected answers
-  task compute_expected(input [3:0] a, b, input [2:0]        alu_ctrl);
+    task compute_expected(input [3:0] a, b, input [2:0] alu_ctrl);
         logic [4:0] tmp;
         begin
             case (alu_ctrl)
@@ -56,7 +56,7 @@ module alu_tb;
 //Assertions
 // 1️⃣ Zero flag must always reflect result
     assert property (@(*) zero == (result == 4'b0000))
-      else $error("ZERO flag incorrect: result=%0d       zero=%0b", result, zero);
+      else $error("ZERO flag incorrect: result=%0d zero=%0b", result, zero);
 
     // 2️⃣ Carry correctness for ADD operation
     assert property (@(*)
@@ -72,7 +72,7 @@ module alu_tb;
 //Test Sequence
     initial begin
       $dumpfile("dump.vcd");   // name of the VCD file
-      $dumpvars(0, alu_tb);    // dump all signals in                                      alu_tb
+      $dumpvars(0, alu_tb);    // dump all signals in  alu_tb
        // Random tests
     repeat (200) begin
         a = $urandom_range(0, 15);
@@ -84,7 +84,7 @@ module alu_tb;
         cg.sample();
 
         assert(result == expected_result)
-          else $error("Mismatch: a=%0d b=%0d op=%0d                   got=%0d exp=%0d",a, b, alu_ctrl, result,                       expected_result);
+            else $error("Mismatch: a=%0d b=%0d op=%0d got=%0d exp=%0d",a, b, alu_ctrl, result, expected_result);
     end
 
       // Directed tests (force all ops at least once)## trying      to force missing values 
