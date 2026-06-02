@@ -74,7 +74,37 @@ module alu_tb;
       $dumpfile("dump.vcd");   // name of the VCD file
       $dumpvars(0, alu_tb);    // dump all signals in  alu_tb
        // Random tests
-    repeat (200) begin
+       //---------------------------------------------------
+    // PHASE 1 : 20 Random Tests
+    //---------------------------------------------------
+
+    repeat (20) begin
+        a = $urandom_range(0,15);
+        b = $urandom_range(0,15);
+        alu_ctrl = $urandom_range(0,7);
+
+        compute_expected(a,b,alu_ctrl);
+        #5;
+
+        cg.sample();
+
+        assert(result == expected_result)
+        else
+            $error("Mismatch!");
+
+        assert(carry_out == expected_carry)
+        else
+            $error("Carry Mismatch!");
+    end
+
+    $display("\nCoverage after 20 random tests = %0.2f%%",
+              cg.get_coverage());
+
+    //---------------------------------------------------
+    // PHASE 2 : Additional Random Tests
+    //---------------------------------------------------
+
+   repeat (200) begin
         a = $urandom_range(0, 15);
         b = $urandom_range(0, 15);
         alu_ctrl = $urandom_range(0, 7);
@@ -86,8 +116,9 @@ module alu_tb;
         assert(result == expected_result)
             else $error("Mismatch: a=%0d b=%0d op=%0d got=%0d exp=%0d",a, b, alu_ctrl, result, expected_result);
     end
-
-      // Directed tests (force all ops at least once)## trying      to force missing values 
+    //---------------------------------------------------
+    // PHASE 3 : Directed Corner Cases//(force all ops at least once)## trying      to force missing values 
+    //---------------------------------------------------
         // ADD overflow
         a = 4'hF; b = 4'h1; alu_ctrl = 3'b000;
         compute_expected(a, b, alu_ctrl); #5; cg.sample();
